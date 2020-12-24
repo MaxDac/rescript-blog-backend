@@ -1,0 +1,19 @@
+rescript = 1
+rule astj
+  command = /Users/massimilianodacunzo/Projects/ReasonML/rescript-blog-backend/node_modules/bs-platform/darwin/bsc.exe  -warn-error +101 -bs-v 8.4.2  -absname -bs-ast -o $out $i
+o src/Routes.ast : astj ../../src/Routes.res
+rule deps
+  command = /Users/massimilianodacunzo/Projects/ReasonML/rescript-blog-backend/node_modules/bs-platform/darwin/bsb_helper.exe -hash c2b0f30fa89dfcec9c027ae9b8c32656 $in
+  restat = 1
+o src/Routes.d : deps src/Routes.ast
+rule mij
+  command = /Users/massimilianodacunzo/Projects/ReasonML/rescript-blog-backend/node_modules/bs-platform/darwin/bsc.exe -I src/base -I src   -warn-error +101 -bs-package-name rescript-project-template -bs-package-output commonjs:$in_d:.bs.js $i
+  dyndep = 1
+  restat = 1
+o src/Routes.cmj src/Routes.cmi ../../src/Routes.bs.js : mij src/Routes.ast
+o src/Server.ast : astj ../../src/Server.res
+o src/Server.d : deps src/Server.ast
+o src/Server.cmj src/Server.cmi ../../src/Server.bs.js : mij src/Server.ast
+o src/base/JsImports.ast : astj ../../src/base/JsImports.res
+o src/base/JsImports.d : deps src/base/JsImports.ast
+o src/base/JsImports.cmj src/base/JsImports.cmi ../../src/base/JsImports.bs.js : mij src/base/JsImports.ast

@@ -1,0 +1,10 @@
+####{BSB GENERATED: NO EDIT
+FLG -ppx '/Users/massimilianodacunzo/Projects/ReasonML/rescript-blog-backend/node_modules/bs-platform/darwin/bsc.exe -as-ppx '
+S /Users/massimilianodacunzo/Projects/ReasonML/rescript-blog-backend/node_modules/bs-platform/lib/ocaml
+B /Users/massimilianodacunzo/Projects/ReasonML/rescript-blog-backend/node_modules/bs-platform/lib/ocaml
+FLG -w +a-4-9-20-40-41-42-50-61-102
+S src
+B lib/bs/src
+S src/base
+B lib/bs/src/base
+####BSB GENERATED: NO EDIT}

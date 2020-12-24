@@ -1,0 +1,18 @@
+rescript = 1
+rule cp
+  command = cp $i $out
+rule touch
+ command = touch $out
+o Routes.cmi : cp ../bs/src/Routes.cmi
+o Routes.cmj : cp ../bs/src/Routes.cmj
+o Routes.cmt : cp ../bs/src/Routes.cmt
+o Routes.res : cp ../../src/Routes.res
+o Server.cmi : cp ../bs/src/Server.cmi
+o Server.cmj : cp ../bs/src/Server.cmj
+o Server.cmt : cp ../bs/src/Server.cmt
+o Server.res : cp ../../src/Server.res
+o JsImports.cmi : cp ../bs/src/base/JsImports.cmi
+o JsImports.cmj : cp ../bs/src/base/JsImports.cmj
+o JsImports.cmt : cp ../bs/src/base/JsImports.cmt
+o JsImports.res : cp ../../src/base/JsImports.res
+build install.stamp : touch Routes.cmi Routes.cmj Server.cmi Server.cmj JsImports.cmi JsImports.cmj 
